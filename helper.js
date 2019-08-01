@@ -30,6 +30,59 @@ function changeTab (li_active, li1_inactive, li2_inactive, div_active, div1_inac
     return age;
 };
 
+const MonthEnum = {
+        
+        1:"January",
+        2:"February",
+        3:"March",
+        4:"April",
+        5:"May",
+        6:"June",
+        7:"July",
+        8:"August",
+        9:"September",
+        10:"October",
+        11:"November",
+        12:"December"
+};
+//<li id="month"><a href="#month" data-toggle="tab">Months</a></li> 
+function getMonthsFromBeginningOfYearUntilToday(){
+        
+        let dt = new Date();
+        
+        let monthsFromBeginningOfYearUntilToday = dt.getMonth()+1;
+        
+        if(monthsFromBeginningOfYearUntilToday > 12){
+                monthsFromBeginningOfYearUntilToday = 1;
+        }
+        
+        let ul = document.getElementById("myActivitiesTabs");
+        
+        for(let i = 1; i <= monthsFromBeginningOfYearUntilToday; i++){
+               
+                let li = document.createElement("li");
+
+                li.setAttribute("id", `${MonthEnum[i]}`);
+
+                let a = document.createElement("a");
+
+                a.setAttribute("href", `#${MonthEnum[i]}`);
+                
+                a.setAttribute("data-toggle", "tab");
+               
+                a.textContent = `${MonthEnum[i]}`;
+
+                li.appendChild(a);
+
+                ul.appendChild(li);
+        }
+}
+
+getMonthsFromBeginningOfYearUntilToday();
+
+
+
+
 
 
 

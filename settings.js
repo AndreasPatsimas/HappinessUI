@@ -6,4 +6,6 @@ aSettings.addEventListener("click", function(){
 
     changeTab(liSettings, liHome, liNotes, divSettingsInfo, divHomeInfo, divNotesInfo);
 
+    document.getElementById("myActivitiesTabs").style.display = "none";
+
 });

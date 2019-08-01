@@ -23,15 +23,26 @@ xhr.send();
 
 let d = new Date();
 let month = d.getMonth()+1;
-
-localStorage.setItem("lastLogin", month + "." +d.getDate()+ "." + d.getFullYear());
+if(month > 12 ){
+    month = 1;
+}
+let preMonth = "",
+    preDay   = "";
+if(month < 10 ){
+    preMonth = "0";
+}
+if(d.getDate() < 10 ){
+    preDay = "0";
+}
+let lastLogin = d.getFullYear() + "-" + preMonth + month + "-" + preDay + d.getDate();
+localStorage.setItem("lastLogin", lastLogin);
 localStorage.setItem("imageLink", "sotiris.jpg");
 
 const img = document.querySelector("#img-profile");
 img.setAttribute("src", localStorage.getItem("imageLink"));
 
 
-const lastLogin = document.getElementById("lastLogin").innerHTML = '<span class="pull-left"><strong>Last seen</strong></span> '+ localStorage.getItem("lastLogin");
+const lastLog = document.getElementById("lastLogin").innerHTML = '<span class="pull-left"><strong>Last seen</strong></span> '+ localStorage.getItem("lastLogin");
 
 
 
