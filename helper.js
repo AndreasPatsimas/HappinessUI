@@ -13,8 +13,17 @@ function changeTab (li_active, li1_inactive, li2_inactive, div_active, div1_inac
         div2_inactive.setAttribute("class","tab-pane");
 }
 
+function changeMonthsTab(activeElement, ...inactiveElements) {
 
-  function getAge(dateString){
+        activeElement.setAttribute("class","active");
+
+        inactiveElements.forEach(inactiveElement => 
+                inactiveElement.removeAttribute("class")
+        );
+}
+
+
+function getAge(dateString){
 
     var today = new Date();
     
@@ -45,7 +54,7 @@ const MonthEnum = {
         11:"November",
         12:"December"
 };
-//<li id="month"><a href="#month" data-toggle="tab">Months</a></li> 
+
 function getMonthsFromBeginningOfYearUntilToday(){
         
         let dt = new Date();
@@ -76,9 +85,12 @@ function getMonthsFromBeginningOfYearUntilToday(){
 
                 ul.appendChild(li);
         }
+
+        return monthsFromBeginningOfYearUntilToday;
 }
 
-getMonthsFromBeginningOfYearUntilToday();
+getMonthsFromBeginningOfYearUntilToday()
+
 
 
 

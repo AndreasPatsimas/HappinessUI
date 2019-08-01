@@ -44,5 +44,8 @@ img.setAttribute("src", localStorage.getItem("imageLink"));
 
 const lastLog = document.getElementById("lastLogin").innerHTML = '<span class="pull-left"><strong>Last seen</strong></span> '+ localStorage.getItem("lastLogin");
 
+document.getElementById("prevYear").textContent = `General ${d.getFullYear() - 1}`;
+document.getElementById("thisYear").textContent = `General ${d.getFullYear()}`;
+
 
 
