@@ -36,7 +36,7 @@ if(d.getDate() < 10 ){
 }
 let lastLogin = d.getFullYear() + "-" + preMonth + month + "-" + preDay + d.getDate();
 localStorage.setItem("lastLogin", lastLogin);
-localStorage.setItem("imageLink", "sotiris.jpg");
+localStorage.setItem("imageLink", "andreas.jpg");
 
 const img = document.querySelector("#img-profile");
 img.setAttribute("src", localStorage.getItem("imageLink"));
