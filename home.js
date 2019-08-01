@@ -4,6 +4,6 @@ const liHome       = document.querySelector("#home"),
 
 aHome.addEventListener("click", function(){
 
-    tab(liHome, liNotes, liSettings, divHomeInfo, divNotesInfo, divSettingsInfo);
+    changeTab(liHome, liNotes, liSettings, divHomeInfo, divNotesInfo, divSettingsInfo);
 
 });

@@ -4,6 +4,6 @@ const liNotes       = document.querySelector("#notes"),
       divNotesInfo  = document.querySelector("#notesInfo");
 
  aNotes.addEventListener("click", function(){
-     tab(liNotes, liHome, liSettings, divNotesInfo, divHomeInfo, divSettingsInfo);
+     changeTab(liNotes, liHome, liSettings, divNotesInfo, divHomeInfo, divSettingsInfo);
  });
     

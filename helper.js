@@ -1,4 +1,4 @@
-function tab (li_active, li1_inactive, li2_inactive, div_active, div1_inactive, div2_inactive){
+function changeTab (li_active, li1_inactive, li2_inactive, div_active, div1_inactive, div2_inactive){
 
         li_active.setAttribute("class","active");
     
