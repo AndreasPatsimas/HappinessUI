@@ -14,11 +14,23 @@ function tab (li_active, li1_inactive, li2_inactive, div_active, div1_inactive, 
 }
 
 
-function calculateAge(birthday) { // birthday is a date
-    var ageDifMs = Date.now() - birthday.getTime();
-    var ageDate = new Date(ageDifMs); // miliseconds from epoch
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-  }
+  function getAge(dateString){
+
+    var today = new Date();
+    
+    var birthDate = new Date(dateString);
+    
+    var age = today.getFullYear() - birthDate.getFullYear();
+   
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) 
+    {
+        age--;
+    }
+    return age;
+};
+
+
 
 
 
