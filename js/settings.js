@@ -9,3 +9,8 @@ aSettings.addEventListener("click", function(){
     document.getElementById("myActivitiesTabs").style.display = "none";
 
 });
+
+const imgSettings = document.getElementById("imgSettings");
+imgSettings.setAttribute("src", localStorage.getItem("imageLink"));
+
+// document.getElementById("first_name").value = document.getElementById("fullname").innerText;
