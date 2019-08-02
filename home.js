@@ -61,7 +61,36 @@ function getActiveTab(){
 }
 
 
+function changeMonthsTab(activeElement, inactiveElement) {
 
+    if(activeElement != null){
+                    
+            activeElement.setAttribute("class","active");
+
+            inactiveElement.removeAttribute("class");
+            
+            fillhomeTable(activeElement);
+    }  
+}
+
+function fillhomeTable(activeElement){
+    const homeTable = document.getElementById("items");
+            
+            var content = "";
+
+            for(let i = 1; i < 4; i++){
+                    content +=      `<tr>
+                                            <td>${i}</td>
+                                            <td>${activeElement.id}</td>
+                                            <td>${activeElement.id}</td>
+                                            <td>${activeElement.id}</td>
+                                    </tr>`;
+            }
+
+            homeTable.innerHTML = content;
+}
+
+fillhomeTable(general);
 
 
 

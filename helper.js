@@ -13,15 +13,7 @@ function changeTab (li_active, li1_inactive, li2_inactive, div_active, div1_inac
         div2_inactive.setAttribute("class","tab-pane");
 }
 
-function changeMonthsTab(activeElement, inactiveElement) {
 
-        if(activeElement != null){
-                        
-                activeElement.setAttribute("class","active");
-
-                inactiveElement.removeAttribute("class")            
-        }  
-}
 
 
 function getAge(dateString){
@@ -102,9 +94,6 @@ function getFirstChildWithTagName( element, tagName ) {
         }
 } //returns the first child of a specified element that matches a specified tag name
   
-
-
-
 
 
 
