@@ -13,13 +13,14 @@ function changeTab (li_active, li1_inactive, li2_inactive, div_active, div1_inac
         div2_inactive.setAttribute("class","tab-pane");
 }
 
-function changeMonthsTab(activeElement, ...inactiveElements) {
+function changeMonthsTab(activeElement, inactiveElement) {
 
-        activeElement.setAttribute("class","active");
+        if(activeElement != null){
+                        
+                activeElement.setAttribute("class","active");
 
-        inactiveElements.forEach(inactiveElement => 
-                inactiveElement.removeAttribute("class")
-        );
+                inactiveElement.removeAttribute("class")            
+        }  
 }
 
 
@@ -88,9 +89,19 @@ function getMonthsFromBeginningOfYearUntilToday(){
 
         return monthsFromBeginningOfYearUntilToday;
 }
+const numberOfMonths = getMonthsFromBeginningOfYearUntilToday();
 
-getMonthsFromBeginningOfYearUntilToday()
+function getHash( url ) {
+        var hashPos = url.lastIndexOf ( '#' );
+        return url.substring( hashPos + 1 );
+} //returns the portion of a URL after any hash symbol
 
+function getFirstChildWithTagName( element, tagName ) {
+        for ( var i = 0; i < element.childNodes.length; i++ ) {
+          if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+        }
+} //returns the first child of a specified element that matches a specified tag name
+  
 
 
 

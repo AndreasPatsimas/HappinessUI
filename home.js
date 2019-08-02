@@ -1,66 +1,20 @@
 const liHome       = document.querySelector("#home"),
       aHome        = liHome .firstChild,
       divHomeInfo  = document.querySelector("#homeInfo"),
-      general      = document.querySelector("#general").firstChild,
-      january      = document.querySelector("#January").firstChild;
-      
-let   february     = document.querySelector("#February");
-if(february != null){
-    february = document.querySelector("#February").firstChild;
-}
+      general      = document.querySelector("#general"),
+      january      = document.querySelector("#January"),
+      february     = document.querySelector("#February"),
+      march        = document.querySelector("#March"),  
+      april        = document.querySelector("#April"),  
+      may          = document.querySelector("#May"),
+      june         = document.querySelector("#June"),
+      july         = document.querySelector("#July"),
+      august       = document.querySelector("#August"),
+      september    = document.querySelector("#September"),
+      october      = document.querySelector("#October"),
+      november     = document.querySelector("#November"),
+      december     = document.querySelector("#December");
 
-let march          = document.querySelector("#March");
-if(march != null){
-    march = document.querySelector("#February").firstChild;
-}
-
-let april          = document.querySelector("#April");
-if(april != null){
-    april = document.querySelector("#February").firstChild;
-}
-
-let may            = document.querySelector("#May");
-if(may != null){
-    may = document.querySelector("#February").firstChild;
-}
-
-let june           = document.querySelector("#June");
-if(june != null){
-    june = document.querySelector("#February").firstChild;
-}
-
-let july           = document.querySelector("#July");
-if(july != null){
-    july = document.querySelector("#February").firstChild;
-}
-
-let august         = document.querySelector("#August");
-if(august != null){
-    august = document.querySelector("#February").firstChild;
-}
-
-let september      = document.querySelector("#September");
-if(september != null){
-    september = document.querySelector("#February").firstChild;
-}
-
-let october        = document.querySelector("#October");
-if(october != null){
-    october = document.querySelector("#February").firstChild;
-}
-let november       = document.querySelector("#November");
-if(november != null){
-    november = document.querySelector("#February").firstChild;
-}
-let december       = document.querySelector("#December");
-if(december != null){
-    december = document.querySelector("#February").firstChild;
-}
-
-      
-
-
-    
       
 aHome.addEventListener("click", function(){
 
@@ -68,6 +22,43 @@ aHome.addEventListener("click", function(){
     
     document.getElementById("myActivitiesTabs").style.display = "block";
 });
+
+
+function init(...tabs){
+
+    tabs.forEach(function(tabActivated){
+        if(tabActivated != null){
+            tabActivated.addEventListener("click",function(){
+                
+                tab = getActiveTab();
+                
+                changeMonthsTab(tabActivated,tab);
+            
+            });
+        }
+    });
+}
+
+init(general, january, february, march, april, may, june, july, august, september, october, november, december);
+
+
+var tab;
+
+function getActiveTab(){
+    
+    var tabListItems = document.getElementById('myActivitiesTabs').childNodes;
+    
+    tabListItems.forEach(function(tabListItem){
+        
+        if(tabListItem.nodeName == "LI" && tabListItem.className == "active"){
+           
+           tab = tabListItem; 
+                  
+        }
+    });
+    
+    return tab;
+}
 
 
 
