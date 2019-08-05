@@ -168,7 +168,7 @@
 
 
                         <hr>
-                        <form class="form" action="##" method="post" id="registrationForm">
+                        <form class="form" action="happy/user" method="POST" id="registrationForm">
 
                                 <div class="form-group">
                                         <div class="col-md-3 col-lg-4" style="margin-top: 10px;">
@@ -188,8 +188,8 @@
                                         <h4>First name</h4>
                                     </label>
                                     <!--  -->
-                                    <input type="text" class="form-control" name="first_name" id="first_name"
-                                        placeholder="first name" title="enter your first name if any.">
+                                    <input type="text" class="form-control" name="firstName" id="first_name"
+                                        placeholder="first name" title="enter your first name ." required = "true">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -198,8 +198,8 @@
                                     <label for="last_name">
                                         <h4>Last name</h4>
                                     </label>
-                                    <input type="text" class="form-control" name="last_name" id="last_name"
-                                        placeholder="last name" title="enter your last name if any.">
+                                    <input type="text" class="form-control" name="lastName" id="last_name"
+                                        placeholder="last name" title="enter your last name ." required = "true">
                                 </div>
                             </div>
 
@@ -210,8 +210,8 @@
                                     <label for="text">
                                         <h4>Username</h4>
                                     </label>
-                                    <input type="text" class="form-control" id="username" placeholder="username"
-                                        title="enter username">
+                                    <input type="text" class="form-control" name="username" id="usernameSettings" placeholder="username"
+                                        title="enter username" required = "true">
                                 </div>
                             </div>
 
@@ -221,8 +221,8 @@
                                     <label for="email">
                                         <h4>Email</h4>
                                     </label>
-                                    <input type="email" class="form-control" name="email" id="email"
-                                        placeholder="you@email.com" title="enter your email.">
+                                    <input type="email" class="form-control" name="email" id="emailSettings"
+                                        placeholder="you@email.com" title="enter your email." required = "true">
                                 </div>
                             </div>
                             
@@ -233,9 +233,10 @@
                                         <h4>Password</h4>
                                     </label>
                                     <input type="password" class="form-control" name="password" id="password"
-                                        placeholder="password" title="enter your password.">
+                                        placeholder="password" title="enter your password." required = "true">
                                 </div>
                             </div>
+                              
                             <div class="form-group">
 
                                 <div class="col-xs-6">
@@ -243,17 +244,33 @@
                                         <h4>Verify Password</h4>
                                     </label>
                                     <input type="password" class="form-control" name="password2" id="password2"
-                                        placeholder="password2" title="enter your password2.">
+                                        placeholder="password2" title="enter your password2." required = "true">
+                                        <p style = "color:red" id = "diffPassw"></p>
                                 </div>
                             </div>
+                            
+                            <div class="form-group">
 
+                                <div>
+                                    
+                                    <input type = "hidden" class="form-control" name="registrationDate" id = "docSettings">
+                                </div>
+                            </div>
+                            
+							<div class="form-group">
+
+                                <div>
+                                    
+                                    <input type = "hidden" class="form-control" name="userId" id = "idSettings">
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <br>
                                     <button class="btn btn-lg btn-success" type="submit"><i
                                             class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i>
+                                    <button class="btn btn-lg" type = "reset" onclick = "getInitializedFields()" ><i class="glyphicon glyphicon-repeat"></i>
                                         Reset</button>
                                 </div>
                             </div>

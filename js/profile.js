@@ -1,41 +1,36 @@
-const xhr = new XMLHttpRequest();
+const xhr = new httpRequest();
 
-xhr.open("GET", "happyUsers.json", true);
-
-xhr.onload = function(){
+xhr.get("happyUsers.json", 
+function(error, user){
     
-    const user = JSON.parse(this.responseText);
-    
-    const username = document.getElementById("username").innerText = `${user.username}`; 
+    if(error){
+        console.log(error)
+    }
+    else{
 
-    const doc = document.getElementById("doc").innerHTML = `<span class="pull-left"><strong>Joined</strong></span> ${user.registrationDate}`;
+        user = JSON.parse(user);
+        
+        const username = document.getElementById("username").innerText = `${user.username}`; 
 
-    const fullname = document.getElementById("fullname").innerHTML = `<span class="pull-left"><strong>Full name</strong></span> ${user.firstName} ${user.lastName}`;
+        let ddd = new Date(`${user.registrationDate}`);
+        let registrationDate = getBeautifulDate(ddd);
+        const doc = document.getElementById("doc").innerHTML           = `<span class="pull-left"><strong>Joined</strong></span> ${registrationDate}`;
+        
+        const fullname = document.getElementById("fullname").innerHTML = `<span class="pull-left"><strong>Full name</strong></span> ${user.firstName} ${user.lastName}`;
 
-    const email = document.getElementById("email").innerHTML = `<span class="pull-left"><strong>Email</strong></span> ${user.email}`;
+        const email = document.getElementById("email").innerHTML       = `<span class="pull-left"><strong>Email</strong></span> ${user.email}`;
 
-    const age = document.getElementById("age").innerHTML = `<span class="pull-left"><strong>Age</strong></span> ${getAge(user.dateOfBirth)}`;
-     
-};
-
-xhr.send();
+        const age = document.getElementById("age").innerHTML           = `<span class="pull-left"><strong>Age</strong></span> ${getAge(user.dateOfBirth)}`;
+    }
+});
 
 
 
 let d = new Date();
-let month = d.getMonth()+1;
-if(month > 12 ){
-    month = 1;
-}
-let preMonth = "",
-    preDay   = "";
-if(month < 10 ){
-    preMonth = "0";
-}
-if(d.getDate() < 10 ){
-    preDay = "0";
-}
-let lastLogin = d.getFullYear() + "-" + preMonth + month + "-" + preDay + d.getDate();
+
+
+let lastLogin = getBeautifulDate(d);
+
 localStorage.setItem("lastLogin", lastLogin);
 localStorage.setItem("imageLink", "andreas.jpg");
 

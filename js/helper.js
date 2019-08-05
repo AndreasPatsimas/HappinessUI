@@ -96,6 +96,22 @@ function getFirstChildWithTagName( element, tagName ) {
   
 
 
+function getBeautifulDate(varDate){
+	
+	let month = varDate.getMonth()+1;
+	if(month > 12 ){
+	    month = 1;
+	}
+	let preMonth = "",
+	    preDay   = "";
+	if(month < 10 ){
+	    preMonth = "0";
+	}
+	if(varDate.getDate() < 10 ){
+	    preDay = "0";
+	}
+	return varDate.getFullYear() + "-" + preMonth + month + "-" + preDay + varDate.getDate();
+};
 
 
 
