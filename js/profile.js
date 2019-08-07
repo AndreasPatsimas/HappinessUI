@@ -22,6 +22,8 @@ function(error, user){
 
         const age = document.getElementById("age").innerHTML           = `<span class="pull-left"><strong>Age</strong></span> ${getAge(user.dateOfBirth)}`;
     
+        document.getElementById("new_picture").setAttribute("action", `saveUserPhoto/${user.userId}`);
+
         const img = document.querySelector("#img-profile");
         //img.setAttribute("src", `getUserPhoto/${user.userId}`);
         // img.setAttribute("src", localStorage.getItem("imageLink"));
@@ -36,10 +38,8 @@ let d = new Date();
 
 let lastLogin = getBeautifulDate(d);
 
-localStorage.setItem("lastLogin", lastLogin);
 
-
-const lastLog = document.getElementById("lastLogin").innerHTML = '<span class="pull-left"><strong>Last seen</strong></span> '+ localStorage.getItem("lastLogin");
+const lastLog = document.getElementById("lastLogin").innerHTML = '<span class="pull-left"><strong>Last seen</strong></span> '+ lastLogin;
 
 document.getElementById("prevYear").textContent = `General ${d.getFullYear() - 1}`;
 document.getElementById("thisYear").textContent = `General ${d.getFullYear()}`;
