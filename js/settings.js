@@ -80,7 +80,7 @@ function editProfile(){
 				         }
 				         else{
 				        	 user = JSON.parse(user);
-				        	 //console.log(user);
+				        	 
 				        	 location.reload();
 				         }
 				
