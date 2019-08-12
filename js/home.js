@@ -94,6 +94,7 @@ const homeTable = document.getElementById("items");
                                       <td>${activeElement.id}</td>
                                       <td>${activeElement.id}</td>
                                       <td>${activeElement.id}</td>
+                                      <td>${activeElement.id}</td>
                               </tr>`;
       }
 
@@ -109,7 +110,7 @@ httpHome.get(`previousYearProfile.json`,
       }
         else{
             previousYearProfiles = JSON.parse(previousYearProfiles);
-            console.log(previousYearProfiles);
+            
             let today = new Date();
 
             let avgRatingPreviousYear = Math.round(71.25 * 100) / 100;
@@ -118,8 +119,41 @@ httpHome.get(`previousYearProfile.json`,
                                                           General ${today.getFullYear()-1}</strong></span> 
                                                           ${avgRatingPreviousYear}% </a>`;
 
-            
-                              
+            const modal = document.getElementById("tablePrevYearModal");
+                                                          
+            document.getElementById("analysisPreviousYear").addEventListener("click", () =>{
+                
+              modal.style.display = "block";
+                
+            });
+              
+            document.getElementById("closePrevModal").addEventListener("click", () => {modal.style.display = "none"});
+                
+            window.addEventListener("click", (e) => {
+              if(e.target == modal){
+                modal.style.display = "none";
+              }
+            });
+
+            let content = ``;
+
+            let date;
+
+            for (let i = 0; i < previousYearProfiles.length; i++){
+              
+              date = new Date(previousYearProfiles[i].activity.added);
+
+              date = getBeautifulDate(date);
+              content +=      `<tr>
+                                      <td>${i + 1}</td>
+                                      <td>${previousYearProfiles[i].activity.activityName}</td>
+                                      <td>${previousYearProfiles[i].happiness.description}</td>
+                                      <td>${previousYearProfiles[i].rating}</td>
+                                      <td>${date}</td>
+                              </tr>`;
+            }
+ 
+            document.getElementById("prevProfiles").innerHTML = content;
       }
 });
 
