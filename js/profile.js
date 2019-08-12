@@ -1,6 +1,6 @@
 const xhr = new httpRequest();
 
-xhr.get("happyUsers.json", 
+xhr.get("json/happyUsers.json", 
 function(error, user){
     
     if(error){

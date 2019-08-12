@@ -17,7 +17,7 @@ const http = new httpRequest();
 
 function getInitializedFields(){
 
-	http.get("happyUsers.json", function(error, user){
+	http.get("json/happyUsers.json", function(error, user){
 
 	    if(error){
 	        console.log(error);
