@@ -101,7 +101,7 @@ const homeTable = document.getElementById("items");
 
           for(let i = 0; i < currentYearProfiles.length; i++){
             if(activeElement.id === "general"){
-
+              
               document.getElementById("addActivity").innerHTML = "#";
 
                   content =      `<tr>
@@ -131,10 +131,10 @@ const homeTable = document.getElementById("items");
                 let date = new Date(currentYearProfiles[i].activity.added);
 
                 content +=  `<tr>
-                              <td></td>
+                              <td><a href="#" id="${currentYearProfiles[i].profileId} " ><i class="fa fa-remove" style = 'color: orange '></i></a></td>
                               <td>${currentYearProfiles[i].activity.activityName}</td>
                               <td>${currentYearProfiles[i].happiness.description}</td>
-                              <td>${currentYearProfiles[i].rating}</td>
+                              <td>${currentYearProfiles[i].rating}%</td>
                               <td>${getBeautifulDate(date)}</td>
                            </tr>`;
               }
@@ -142,13 +142,15 @@ const homeTable = document.getElementById("items");
           }
     
           homeTable.innerHTML = content;
-
+          
+          document.querySelector("#items").childNodes.forEach((item) => {
+            console.log(item.childNodes[1].firstChild.id);
+          })
         }
       })
 
 
 }
-
 
 
 httpHome.get(`json/previousYearProfile.json`, 
@@ -196,7 +198,7 @@ httpHome.get(`json/previousYearProfile.json`,
                                       <td>${i + 1}</td>
                                       <td>${previousYearProfiles[i].activity.activityName}</td>
                                       <td>${previousYearProfiles[i].happiness.description}</td>
-                                      <td>${previousYearProfiles[i].rating}</td>
+                                      <td>${previousYearProfiles[i].rating}%</td>
                                       <td>${date}</td>
                               </tr>`;
             }
