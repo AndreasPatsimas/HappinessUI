@@ -114,5 +114,11 @@ function getBeautifulDate(varDate){
 };
 
 
+//Get values from form and convert them to json objects
+const formToJSON = elements => [].reduce.call(elements, (data, element) => {
 
+        data[element.name] = element.value;
+        return data;
+
+      }, {});
 
